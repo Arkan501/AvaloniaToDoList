@@ -1,4 +1,7 @@
-﻿using ReactiveUI;
+﻿using System.Reactive.Linq;
+using System;
+using ReactiveUI;
+using ToDoList.DataModel;
 using ToDoList.Services;
 
 namespace ToDoList.ViewModels;
@@ -21,6 +24,18 @@ public class MainWindowViewModel : ViewModelBase {
     }
 
     public void AddItem() {
-        ContentViewModel = new AddItemViewModel();
+        AddItemViewModel addItemViewModel = new();
+
+        Observable.Merge(
+            addItemViewModel.OkCommand,
+            addItemViewModel.CancelCommand.Select(_ => (ToDoItem?)null))
+            .Take(1)
+            .Subscribe(newItem => {
+                if (newItem != null)
+                    ToDoList.ListItems.Add(newItem);
+                ContentViewModel = ToDoList;
+            });
+        
+        ContentViewModel = addItemViewModel;
     }
 }

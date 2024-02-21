@@ -134,3 +134,4 @@
 /home/arkan/RiderProjects/ToDoList/ToDoList/obj/Debug/net8.0/ToDoList.csproj.CopyComplete
 /home/arkan/RiderProjects/ToDoList/ToDoList/obj/Debug/net8.0/ToDoList.genruntimeconfig.cache
 /home/arkan/RiderProjects/ToDoList/ToDoList/obj/Debug/net8.0/ref/ToDoList.dll
+/home/arkan/RiderProjects/ToDoList/ToDoList/obj/Debug/net8.0/ToDoList.sourcelink.json
